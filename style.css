@@ -1,0 +1,62 @@
+* { box-sizing: border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 10px; background-color: #f4f7f9; line-height: 1.5; overflow-x: hidden; }
+.dashboard-container { max-width: 1200px; margin: auto; width: 100%; }
+header { margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; }
+.header-content { display: flex; align-items: center; gap: 25px; flex-wrap: wrap; }
+.header-kpi { background-color: #eef4f8; padding: 8px 15px; border-radius: 8px; border: 1px solid #d0e0ec; text-align: center; }
+.header-kpi .kpi-title { font-size: 12px; font-weight: 600; color: #7f8c8d; display: block; }
+.header-kpi .kpi-value { font-size: 22px; font-weight: bold; color: #34495e; }
+.header-kpi .kpi-value.loading { color: #bdc3c7; }
+.header-kpi .kpi-value.status-positivo { color: #27ae60 !important; }
+.header-kpi .kpi-value.status-negativo { color: #e74c3c !important; }
+
+/* ✅ NOVO ESTILO PARA O BOTÃO DE NAVEGAÇÃO NO HEADER */
+.header-button {
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #3498db;
+    background-color: #fff;
+    border: 1px solid #bdc3c7;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+}
+.header-button:hover {
+    background-color: #ecf5ff;
+    border-color: #3498db;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+h1 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 10px; font-size: 24px; margin: 0; }
+#update-btn { display: flex; align-items: center; gap: 8px; padding: 10px 15px; font-size: 14px; font-weight: 600; color: #3498db; background-color: #ecf5ff; border: 1px solid #b3d7f5; border-radius: 6px; cursor: pointer; transition: background-color 0.2s; margin-left: auto; }
+#update-btn:hover { background-color: #d6eafd; }
+#update-btn.updating svg { animation: spin 1s linear infinite; }
+@keyframes spin { 100% { transform: rotate(360deg); } }
+
+main h2 { color: #3498db; margin-top: 30px; margin-bottom: 15px; }
+.kpi-pair-grid { display: flex; gap: 10px; margin-bottom: 10px; }
+.kpi-pair-grid .card { flex: 1; min-width: 0; }
+.summary-cards-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; }
+.card { background-color: #ffffff; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08); padding: 15px; display: flex; flex-direction: column; justify-content: space-between; text-decoration: none; border-left: 4px solid #3498db; }
+.card-title { color: #7f8c8d; font-size: 12px; font-weight: 600; margin-bottom: 8px; word-break: break-word; }
+.card-value { font-size: 20px; font-weight: bold; color: #34495e; word-wrap: break-word; }
+.status-low, .card-value.status-warn { color: #e74c3c !important; font-weight: bold; }
+.status-ok, .card-value.status-ok { font-size: 16px; font-weight: normal; color: #27ae60 !important; }
+.loading { color: #bdc3c7; }
+.chart-container { background-color: #ffffff; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); padding: 20px; height: 350px; position: relative; }
+.details-section { margin-top: 40px; }
+.card-secondary-value { font-size: 16px; font-weight: bold; color: #7f8c8d; margin-top: 10px; }
+.card-secondary-value::before { content: "Nº de Bateladas: "; font-weight: normal; }
+.card-secondary-value.loading::before { content: ""; }
+@media (min-width: 769px) {
+    body { padding: 20px; }
+    h1 { font-size: 28px; }
+    .kpi-pair-grid { gap: 20px; margin-bottom: 20px; }
+    .summary-cards-row { gap: 20px; }
+    .card { padding: 20px; }
+    .card-title { font-size: 14px; }
+    .card-value { font-size: 24px; }
+    .card-value.status-ok { font-size: 18px; }
+}
